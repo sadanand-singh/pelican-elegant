@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-US">
+{% if USE_OPEN_GRAPH is not defined %}
+    {% set USE_OPEN_GRAPH = True %}
+{% endif %}
+<html lang="en-US" {% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml"{% endif %}>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,6 +37,25 @@
         <link rel="apple-touch-icon" sizes="114x114" href="{{ SITEURL }}/theme/images/apple-touch-icon-114x114.png" />
         <link rel="apple-touch-icon" sizes="144x144" href="{{ SITEURL }}/theme/images/apple-touch-icon-144x144.png" />
         <link rel="icon" href="{{ SITEURL }}/theme/images/apple-touch-icon-144x144.png" />
+        
+        {# Open Graph tags #}
+        {% if USE_OPEN_GRAPH %}
+            {% block opengraph %}
+            <!-- Open Graph tags -->
+            {% if OPEN_GRAPH_FB_APP_ID %}
+                <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
+            {% endif %}
+            <meta property="og:site_name" content="{{ SITENAME }}" />
+            <meta property="og:type" content="website"/>
+            <meta property="og:title" content="{{ SITENAME }}"/>
+            <meta property="og:url" content="{{ SITEURL }}"/>
+            <meta property="og:description" content="{{ SITENAME }}"/>
+            {% if OPEN_GRAPH_IMAGE %}
+                <meta property="og:image" content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+            {% endif %}
+            {% endblock %}
+        {% endif %}
+    
         {% include 'feeds.html' %}
         {% include 'analytics.html' %}
     </head>
