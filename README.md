@@ -13,6 +13,8 @@ Additional Parameters that can be used are:
 Also, In any markdown file for an article you can use the "og_image" meta tag to change Open Graph image for a particular
 article.
 
+Additionally, In this modified theme You can use Facebook Share and Like Bbuttons. The disqus comments are always shown, unlike the original theme where they are collapsed by default.
+
 
 
 
