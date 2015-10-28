@@ -83,6 +83,12 @@
                 {% endif %}
             {% endif %}
         {% endif %}
+        
+        {% if 'liquid_tags.notebook' in PLUGINS %}
+            {% if EXTRA_HEADER %}
+                {{ EXTRA_HEADER }}
+            {% endif %}
+        {% endif %}
     
         {% include 'feeds.html' %}
         {% include 'analytics.html' %}
