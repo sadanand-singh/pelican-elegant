@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="114x114" href="{{ SITEURL }}/theme/images/apple-touch-icon-114x114.png" />
         <link rel="apple-touch-icon" sizes="144x144" href="{{ SITEURL }}/theme/images/apple-touch-icon-144x144.png" />
         <link rel="icon" href="{{ SITEURL }}/theme/images/apple-touch-icon-144x144.png" />
-        
+
         {# Open Graph tags #}
         {% if USE_OPEN_GRAPH %}
             {% block opengraph %}
@@ -55,7 +55,7 @@
             {% endif %}
             {% endblock %}
         {% endif %}
-        
+
         {% if TWITTER_CARDS and USE_OPEN_GRAPH %}
             {# Do not include duplicates tag with og ones. #}
             {# Twitter is able to infer them from og. #}
@@ -83,13 +83,13 @@
                 {% endif %}
             {% endif %}
         {% endif %}
-        
+
         {% if 'liquid_tags.notebook' in PLUGINS %}
             {% if EXTRA_HEADER %}
                 {{ EXTRA_HEADER }}
             {% endif %}
         {% endif %}
-    
+
         {% include 'feeds.html' %}
         {% include 'analytics.html' %}
     </head>
